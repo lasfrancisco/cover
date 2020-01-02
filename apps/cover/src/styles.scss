@@ -17,10 +17,11 @@
 @import url('https://fonts.googleapis.com/css?family=Bad+Script|Open+Sans&display=swap');
 
 // Import local partials
-@import 'variables';
-@import 'loading';
-@import 'material';
-@import 'theming';  
+@import './styles/variables';
+@import './styles/loading';
+@import './styles/material';
+@import './styles/colors';
+@import './styles/theming';
 
 //font-family: 'Open Sans', sans-serif;
 //font-family: 'Bad Script', cursive;

@@ -1,5 +1,4 @@
 
-
 @mixin wm-navigator-theme($theme) {
 
   $background: map-get($theme, background);
@@ -30,7 +29,6 @@
     .wm-menu {
 
       background-color: map-get($background, app-bar);
-      //box-shadow: 0 6px 12px rgba(black, 0.125);
     
       .link-active {
         border-left: 2px solid mat-color($primary);
@@ -43,24 +41,5 @@
       background-color: mat-color($wm-primary, 'darker');
       color: mat-color($wm-primary, 100);
     }
-  }
-
-  .wm-feedback {
-    
-    // Uses the "accent" color palette
-   .info {
-     background-color: mat-color($primary, 50);
-     color: mat-color($primary, 600);
-     border: 1px solid mat-color($primary, 600);
-     border-radius: 5px;
-   }
- 
-   // Uses the "warning" color palette
-   .error {
-     background-color: mat-color($warn, 50);
-     color: mat-color($warn, 600);
-     border: 1px solid mat-color($warn, 600);
-     border-radius: 5px;
-   }
   }
 }

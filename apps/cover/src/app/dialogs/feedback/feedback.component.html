@@ -22,9 +22,9 @@
 
       <mat-dialog-content [ngSwitch]="success">
 
-        <p class="message info" *ngSwitchCase="true">{{ msgs.notifications?.success || 'Succeeded' }}</p>
+        <p class="message" *ngSwitchCase="true">{{ msgs.notifications?.success || 'Succeeded' }}</p>
 
-        <p class="message error" *ngSwitchCase="false">{{ msgs.notifications?.error || 'Error' }}</p>
+        <p class="message" *ngSwitchCase="false">{{ msgs.notifications?.error || 'Error' }}</p>
       
       </mat-dialog-content>
 
@@ -87,9 +87,9 @@
       <!-- Submit button -->
       <mat-dialog-actions align="end">
 
-        <mat-progress-bar *ngIf="sending" mode="indeterminate" color="primary"></mat-progress-bar>
+        <mat-progress-bar *ngIf="sending" color="accent" mode="indeterminate"></mat-progress-bar>
 
-        <button mat-flat-button color="primary" type="submit" [disabled]="!form.valid || sending">{{ msgs.send || 'Send' }}</button>
+        <button mat-flat-button color="accent" type="submit" [disabled]="!form.valid || sending">{{ msgs.send || 'Send' }}</button>
 
       </mat-dialog-actions>
 

@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DoorbellService } from '@wizdm/doorbell';
@@ -22,7 +22,8 @@ export interface DorbellSubmit {
   selector: 'wm-feedback-dlg',
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.scss'],
-  host: { 'class': 'wm-feedback' }
+  host: { 'class': 'wm-feedback' },
+  encapsulation: ViewEncapsulation.None
 })
 export class FeedbackComponent extends DialogComponent {
 
@@ -36,7 +37,7 @@ export class FeedbackComponent extends DialogComponent {
   constructor(dialog: MatDialog, private builder: FormBuilder, private user: Member, private doorbell: DoorbellService) { 
     super(dialog);
 
-    this.panelClass = 'wm-feedback';
+    this.panelClass = ['wm-feedback', 'wm-theme-colors'];
     
     this.form = this.builder.group({
       'name'   : [ '' ],
@@ -80,7 +81,7 @@ export class FeedbackComponent extends DialogComponent {
     // Rings the doorbell when opening the feedback form
     ref.afterOpened().subscribe( () => 
       // Call the Doorbell restful api and emit the result
-      this.doorbell.ring().then( success => this.feedbackOpen.emit(success) ) 
+      this.doorbell.ring().then( success => this.feedbackOpen.emit(success) )
     );
 
     // Resets the form on closed
@@ -131,7 +132,8 @@ export class FeedbackComponent extends DialogComponent {
 
       // Emits the result of submission while keeping track of it locally
       this.feedbackSent.emit(this.success = success);
-    }); 
+
+    }).catch( error => { this.sent = true; this.success = false; }); 
   }
 
   @Output('sent') feedbackSent = new EventEmitter<boolean>();

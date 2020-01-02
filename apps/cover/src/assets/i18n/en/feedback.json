@@ -23,7 +23,6 @@
   "attachments": {
       "label": "Attachments",
       "icon": "fas:fa-paperclip",
-      "hint": "Let us know your opinion",
       "errors": {
         "sizeExceeded": "File size exceeded"
       }

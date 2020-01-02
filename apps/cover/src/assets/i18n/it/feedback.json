@@ -1,32 +1,31 @@
 {
-    "title": "Let's talk",
-    "send": "Send",
+    "title": "Parliamo!",
+    "send": "Invia",
     "name": {
-        "label": "Name",
-        "hint": "How do we call you"
+        "label": "Nome",
+        "hint": "Come ti possiamo chiamare"
     },
     "email": {
         "label": "Email",
-        "hint": "We'll keep you posted here",
+        "hint": "Ti contatteremo qui",
         "errors": {
-            "required": "Please specify an email address",
-            "invalid": "Oooops! It looks like this is not a valid email "
+            "required": "Ci serve una email per contattarti",
+            "invalid": "Controlla l'indirizzo email"
         }
     },
     "message": {
-        "label": "Message",
-        "hint": "Let us know your opinion",
+        "label": "Messaggio",
+        "hint": "Dicci cosa pensi",
         "errors": {
-            "required": "Please explain yourself here"
+            "required": "Non essere timido"
         }
     },
     "attachments": {
         "enable": false,
-        "label": "Attachments",
+        "label": "Allegati",
         "icon": "fas:fa-paperclip",
-        "hint": "Let us know your opinion",
         "errors": {
-            "sizeExceeded": "File size exceeded"
+            "sizeExceeded": "Il file è troppo grande"
         }
     },
     "credits": {
@@ -34,7 +33,7 @@
         "url": "https://doorbell.io"
     },
     "notifications": {
-        "success": "Thank you for reaching us out!\nWe'll get in touch very soon",
-        "error": "Seems the feedback didn't go through :/\nPlease retry in a minute"
+        "success": "Grazie per averci contattato!\nTi risponderemo quanto prima",
+        "error": "Purtroppo qualcosa non ha funzionato :/\nPer cortesia riprova più tardi"
     }
   }

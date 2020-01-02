@@ -1,29 +1,6 @@
 
 :host {
-  
-  .background {
-    display: block;
-    position: absolute;
-    min-height: 480px;
-    height: 80vh;
-    max-height: 560px;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    transform: skewY(-10deg);
-    transform-origin: 0 100%;
-  }
 
-  .banner {
-    position: relative;
-    min-height: 350px;
-    width: 100%;
+  padding: 0 32px;
 
-    div { padding: 25px; }
-
-    p { text-align: justify; }
-
-    button { margin: 16px 0; }
-  }
 }
