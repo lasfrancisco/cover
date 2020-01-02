@@ -1,0 +1,31 @@
+{
+    "title": "Cover Pizza - Tutte le pizze che vuoi",
+    "description": "La pizza che volevi",
+
+    "toolbar": {
+        "public": [
+            { "label": "Dove siamo", "link": "." },
+            { "label": "Contattaci", "link": "contact" }
+        ],
+        "private": [
+            { "label": "Dove siamo", "link": "." },
+            { "label": "Contattaci", "link": "contact" }
+        ]
+    },
+
+    "menu": {
+        "public": [
+            { "label": "Dove siamo", "link": "." },
+            { "label": "Chi siamo", "link": "about" },
+            { "label": "Contattaci", "link": "contact" },
+            { "label": "Registrati/Accedi", "link": "login", "params": { "mode": "signIn" } }
+        ],
+        "private": [
+            { "label": "Dove siamo", "link": "." },
+            { "label": "Chi siamo", "link": "about" },
+            { "label": "Contattaci", "link": "contact" },
+            { "label": "Profilo", "link": "profile" },
+            { "label": "Esci", "link": "login", "params": { "mode": "signOut" } }
+        ]
+    }
+}

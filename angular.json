@@ -3,24 +3,24 @@
   "version": 1,
   "newProjectRoot": "",
   "projects": {
-    "wizdm": {
-      "root": "apps/wizdm/",
-      "sourceRoot": "apps/wizdm/src",
+    "cover": {
+      "root": "apps/cover/",
+      "sourceRoot": "apps/cover/src",
       "projectType": "application",
       "prefix": "wm",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/wizdm",
-            "index": "apps/wizdm/src/index.html",
-            "main": "apps/wizdm/src/main.ts",
-            "polyfills": "apps/wizdm/src/polyfills.ts",
-            "tsConfig": "apps/wizdm/tsconfig.app.json",
-            "assets": ["apps/wizdm/src/assets"],
-            "styles": ["apps/wizdm/src/styles.scss"],
+            "outputPath": "dist/apps/cover",
+            "index": "apps/cover/src/index.html",
+            "main": "apps/cover/src/main.ts",
+            "polyfills": "apps/cover/src/polyfills.ts",
+            "tsConfig": "apps/cover/tsconfig.app.json",
+            "assets": ["apps/cover/src/assets"],
+            "styles": ["apps/cover/src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": ["apps/wizdm/src/styles", "libs/elements/src/lib"]
+              "includePaths": ["apps/cover/src/styles", "libs/elements/src/lib"]
             },
             "scripts": []
           },
@@ -28,8 +28,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/wizdm/src/environments/environment.ts",
-                  "with": "apps/wizdm/src/environments/environment.prod.ts"
+                  "replace": "apps/cover/src/environments/environment.ts",
+                  "with": "apps/cover/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -47,67 +47,42 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "wizdm:build",
+            "browserTarget": "cover:build",
             "ssl": true,
             "sslCert": "./ssl/server.crt",
             "sslKey": "./ssl/server.key"
           },
           "configurations": {
             "production": {
-              "browserTarget": "wizdm:build:production"
+              "browserTarget": "cover:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "wizdm:build"
+            "browserTarget": "cover:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "apps/wizdm/src/test.ts",
-            "polyfills": "apps/wizdm/src/polyfills.ts",
-            "tsConfig": "apps/wizdm/tsconfig.spec.json",
-            "karmaConfig": "apps/wizdm/karma.conf.js",
-            "styles": ["apps/wizdm/src/styles.scss"],
+            "main": "apps/cover/src/test.ts",
+            "polyfills": "apps/cover/src/polyfills.ts",
+            "tsConfig": "apps/cover/tsconfig.spec.json",
+            "karmaConfig": "apps/cover/karma.conf.js",
+            "styles": ["apps/cover/src/styles.scss"],
             "scripts": [],
-            "assets": ["apps/wizdm/src/favicon.ico", "apps/wizdm/src/assets"]
+            "assets": ["apps/cover/src/favicon.ico", "apps/cover/src/assets"]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/wizdm/tsconfig.app.json",
-              "apps/wizdm/tsconfig.spec.json"
+              "apps/cover/tsconfig.app.json",
+              "apps/cover/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
-    },
-    "wizdm-e2e": {
-      "root": "apps/wizdm-e2e/",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "apps/wizdm-e2e/protractor.conf.js",
-            "devServerTarget": "wizdm:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "wizdm:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "apps/wizdm-e2e/tsconfig.e2e.json",
             "exclude": ["**/node_modules/**"]
           }
         }
@@ -117,7 +92,7 @@
       "projectType": "library",
       "root": "libs/animate",
       "sourceRoot": "libs/animate/src",
-      "prefix": "wizdm",
+      "prefix": "cover",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -148,7 +123,7 @@
       "projectType": "library",
       "root": "libs/content",
       "sourceRoot": "libs/content/src",
-      "prefix": "wizdm",
+      "prefix": "cover",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -212,7 +187,7 @@
       "projectType": "library",
       "root": "libs/redirect",
       "sourceRoot": "libs/redirect/src",
-      "prefix": "wizdm",
+      "prefix": "cover",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -243,7 +218,7 @@
       "projectType": "library",
       "root": "libs/elements",
       "sourceRoot": "libs/elements/src",
-      "prefix": "wizdm",
+      "prefix": "cover",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -307,7 +282,7 @@
       "projectType": "library",
       "root": "libs/prism",
       "sourceRoot": "libs/prism/src",
-      "prefix": "wizdm",
+      "prefix": "cover",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -395,7 +370,7 @@
       "projectType": "library",
       "root": "libs/paypal",
       "sourceRoot": "libs/paypal/src",
-      "prefix": "wizdm",
+      "prefix": "cover",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -426,7 +401,7 @@
       "projectType": "library",
       "root": "libs/stripe",
       "sourceRoot": "libs/stripe/src",
-      "prefix": "wizdm",
+      "prefix": "cover",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -473,5 +448,5 @@
       "unitTestRunner": "karma"
     }
   },
-  "defaultProject": "wizdm"
+  "defaultProject": "cover"
 }

@@ -1,0 +1,80 @@
+// Resets styles with Normalize.css for browser behaviour consistency
+@import '~normalize.css/normalize.css';
+
+// Import prism code highlighting theme
+//@import '~prismjs/themes/prism.css';
+
+// Import Angular Material theming 
+@import '~@angular/material/theming';
+
+// Load material icons from the web
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+// Load fontawsome icons from the web
+@import url('https://use.fontawesome.com/releases/v5.12.0/css/all.css');
+
+// Load the main google fonts from the web
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Open+Sans&display=swap');
+
+// Import local partials
+@import 'variables';
+@import 'loading';
+@import 'material';
+@import 'theming';  
+
+//font-family: 'Open Sans', sans-serif;
+//font-family: 'Bad Script', cursive;
+
+// Creates a customized material typography first...
+$wm-typography: mat-typography-config(
+  $font-family:   'Open Sans, sans-serif',
+  $display-4:     mat-typography-level(112px, 112px, 300),
+  $display-3:     mat-typography-level(72px, 72px, 400),
+  $display-2:     mat-typography-level(56px, 56px, 400),
+  $display-1:     mat-typography-level(45px, 48px, 400),
+  $headline:      mat-typography-level(36px, 48px, 400),
+  $title:         mat-typography-level(24px, 32px, 400),
+  $subheading-2:  mat-typography-level(22px, 28px, 400),
+  $subheading-1:  mat-typography-level(20px, 24px, 400),
+  $body-2:        mat-typography-level(18px, 24px, 400),
+  $body-1:        mat-typography-level(16px, 20px, 400),
+  $button:        mat-typography-level(16px, 20px, 400)
+);
+
+// Define the main theme colors palettes.
+$wm-primary: mat-palette($mat-brown, 700);
+$wm-accent:  mat-palette($mat-deep-orange, 600);
+$wm-warn:    mat-palette($mat-yellow);
+
+// Creates a standard material light theme first...
+$wm-theme: mat-dark-theme($wm-primary, $wm-accent, $wm-warn);
+//... than overrides with customized fore/background values
+$wm-theme: tweak-material-theme($wm-theme, 
+
+  $foreground: ( // Overrides Material foreground colors
+
+    base:              mat-color($wm-primary, 900),
+    disabled-button:   rgba(mat-color($wm-primary, 900), 0.26),
+    icon:              mat-color($wm-primary, 700),
+    icons:             mat-color($wm-primary, 700),
+    //divider:           white,
+    //text:              white,
+    //secondary-text:    white,
+    //light-text:       mat-color($primary, 50),
+    dark-text:         mat-color($wm-primary, 900)
+  ), 
+
+  $background: ( // Overrides Material background colors
+
+    app-bar:          mat-color($mat-red, 900),
+    status-bar:       mat-color($mat-red, 900), 
+    background:       mat-color($mat-red, 900),
+    dialog:           mat-color($mat-red, 900)
+  )
+);
+
+// Creates the .preloader spinner class applying the theme color
+@include loading(40px, mat-color($wm-primary), mat-color($mat-red, 900));
+
+// Initialze the global application theme, make sure to call this only once
+@include wm-init-application-theme($wm-theme, $wm-typography);

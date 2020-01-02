@@ -1,0 +1,22 @@
+
+<ng-container *wmContent="let msgs select 'home'">
+  
+  <!--wm-illustration *ngIf="!!msgs.banner" class="background" color="primary" [src]="msgs.banner" [baseHref]="msgs.lang"></!--wm-illustration--> 
+
+  <section fxLayout="column" fxLayoutAlign="center center" wmAnimate="landing" speed="slow" aos>
+    
+    <h1 class="mat-display-1"><b>{{ msgs.title || 'Get your app done right' }}</b></h1>
+    
+    <p [wm-readme]="msgs.pitch">
+      Wizdm provides all the key features of a modern single page application ready to use.
+    </p>
+    
+    <button mat-raised-button color="accent" [routerLink]="msgs.action?.link">{{ msgs.action?.caption || 'Get started' }}</button>
+    
+    <p [wm-readme]="msgs.join" class="mat-small">
+      Join us and become part of the revolution of <a wmRedirect="about">Wizdm</a>
+    </p>
+    
+  </section>
+
+</ng-container>

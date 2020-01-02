@@ -1,5 +1,5 @@
 {
-  "name": "wizdm",
+  "name": "cover",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -56,7 +56,7 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.800.6",
+    "@angular-devkit/build-angular": "^0.803.21",
     "@angular-devkit/build-ng-packagr": "^0.800.6",
     "@angular/cli": "^8.3.17",
     "@angular/compiler-cli": "^8.2.13",
