@@ -15,11 +15,11 @@ export class ContentSelector implements CanActivate {
 
     // Gets the language code requested from the route 
     const requested = route.paramMap.get( this.config.selector );
-    console.log('Requested language:', requested);
+    //console.log('Requested language:', requested);
 
     // Selects the best language among the allowed ones 
     const selected = this.languageAllowed( requested === 'auto' ? this.browserLanguage : requested );
-    console.log('Selected language:', selected);
+    //console.log('Selected language:', selected);
 
     // Keeps track of the currently selected language within the ContentConfigurator for other services to take advantage from
     this.config.currentValue = selected;
@@ -42,7 +42,7 @@ export class ContentSelector implements CanActivate {
   protected get browserLanguage(): string { 
     
     const detected = this.detectLanguage().split('-')[0];
-    console.log("Detected language:", detected);
+    //console.log("Detected language:", detected);
 
     return detected;
   }

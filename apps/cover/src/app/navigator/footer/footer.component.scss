@@ -1,14 +1,11 @@
 
 :host {
 
-  footer {
-    position: relative;
-    min-height: 64px;
-    width: 100%;
-
-    section { 
-      padding: 32px;
-      width: 100%; 
-    }
-  }
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 16px 8px;
 }

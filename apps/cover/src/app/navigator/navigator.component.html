@@ -7,7 +7,7 @@
     <mat-toolbar>
 
       <!-- Background w/ shadow to fade while blending in -->
-      <div class="background" [@blendin]="!menuVisible && !(scrolled$ | async)"></div>
+      <div class="background background-color" [@blendin]="!menuVisible && !(scrolled$ | async)"></div>
 
       <!-- Navigation bar (1st row) -->
       <mat-toolbar-row fxLayoutAlign="space-between center">
@@ -69,11 +69,14 @@
 
     <!-- Router Outlet stretched to fit -->
     <div fxFlex="1 1 auto">
+
+      <!-- The page goes here -->
       <router-outlet (deactivate)="actionbar.clear()"></router-outlet>
+    
     </div>
     
     <!-- Footer always on the bottom -->
-    <wm-footer fxFlex="0 0 auto"></wm-footer>
+    <footer fxFlex="0 0 auto"></footer>
 
     <!-- Login popup dialog activated on 'login' action link @see navigator-router-module -->
     <wm-login-dlg wmActionLink="login" (activate)="login.open($event)" #login></wm-login-dlg>

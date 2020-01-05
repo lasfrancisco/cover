@@ -1,82 +1,110 @@
 {
-  "title": "Il mio profilo",
-  
-  "uploadImage": {
-    "title": "Scegli una immagine",
-    "noFiles": "Non ci sono immagini",
-    "none": "Nessuna",
-    "cancel": "Annulla",
-    "select": "Imposta",
-    "delete": "Elimina",
-    "browse": "Scegli...",
-    "canDelete": {
-      "title": "Cancella l'immagine",
-      "message": "ATTENZIONE, se continui l'immagine verrà eliminata definitivamente dal server.",
-      "cancel": "Annulla",
-      "ok": "Procedi"
-    }
+  "title": "Public Profile",
+
+  "actions": {
+    "save": { "caption": "Save", "icon": "fas:fa-save" },
+    "signOut": { "caption": "Sign-out", "icon": "fas:fa-sign-out-alt" }
   },
 
-  "actions": [
-    { "caption": "Esci" },
-    { "menu": [
-      { "caption": "I miei file" }
-    ]}
-  ],
-
-  "panels": [
-    {
-      "title": "Informazioni personali",
-      "fields": [
-        { "label": "Nome", "hint": "Qui va il tuo nome" },
-        { "label": "Su di me" },
-        { "label": "Email", "hint": "Cosi che ti possiamo contattare"},
-        { "label": "Telefono", "hint": "Cosi che ti possiamo contattare"},
-        { "label": "Compleanno", "hint": "Cosi che ti possiamo fare gli auguri"},
-        { "label": "Genere" },
-        { "label": "Lingua" }
-      ],
-      "applyChanges": "Applica le modifiche"
+  "form": {
+    "name": {
+      "label": "Name",
+      "icon": "far:fa-user",
+      "hint": "How you'd like to be called",
+      "errors": {
+        "required": "A name is mandatory"
+      }
     },
-    {
-      "title": "Accesso e sicurezza",
-      "fields": [
-        { "label": "Account creato" },
-        { "label": "Provider d'accesso" },
-        { "label": "Email d'accesso" },
-        { "label": "Identità" }
-      ],
-      "buttons": [
-        { "caption": "Verifica email" },
-        { "caption": "Cambia email" },
-        { "caption": "Cambia password" },
-        { "caption": "Elimina account" },
-        { "caption": "Esci" }
+    "motto": {
+      "label": "About me",
+      "icon": "far:fa-comment",
+      "hint": "Tell us about you"
+    },
+    "email": {
+      "label": "Email",
+      "icon": "far:fa-envelope",
+      "hint": "We wish to stay in touch",
+      "errors": {
+        "required": "An email is mandatory",
+        "format" : "There's something wrong with this email"
+      }
+    },
+    "phone": {
+      "label": "Phone",
+      "icon": "fas:fa-phone",
+      "hint": "It's not that we are calling you every moment...",
+      "errors": {
+        "required": "A phone number would be useful",
+        "format" : "There's something wrong with this number"
+      }
+    },
+    "birth": {
+      "label": "Birthday",
+      "icon": "fas:fa-birthday-cake",
+      "hint": "We'll wish you happy birthday, eventually"
+    },
+    "gender": {
+      "label": "Gender",
+      "icon": "fas:fa-genderless",
+      "hint": "This is optional, if you wish to share",
+      "options": [
+        { "label": "Genderless", "icon": "fas:fa-genderless", "value": "u" },
+        { "label": "Male", "icon": "fas:fa-mars", "value": "m" },
+        { "label": "Female", "icon": "fas:fa-venus", "value": "f" },
+        { "label": "Beyond", "icon": "fas:fa-transgender-alt", "value": "x" }
       ]
+    },
+    "language": {
+      "label": "Language",
+      "icon": "fas:fa-language",
+      "hint": "We'll try to adapt the content accordingly",
+      "options": [
+        { "label": "English", "image": "assets/img/gb.svg", "value": "en" },
+        { "label": "Italiano", "image": "assets/img/it.svg", "value": "it" },
+        { "label": "Русский","image": "assets/img/ru.svg", "value": "ru" }
+      ]
+    },
+    "submit": { "label": "Update profile" }
+  },
+
+  "photo": {
+    "label": "Profile picture", 
+    "delete": { "icon": "fas:fa-trash-alt" },
+    "upload": { "icon": "fas:fa-cloud-upload-alt" }
+  },
+
+  "account": {
+    
+    "title": "Account",
+    "description": "Your account has been created on *{{ created }}*.",
+    "verifyEmail": {
+      "title": "Verify Email",
+      "verified": "Your email has been *verified* already.",
+      "unverified": " Your email has *_not_* been verified yet. Please proceed at your convenience.",
+      "action": "Verify your email"
+    },
+    "changeCredentials": {
+
+      "title": "Change email / password",
+      "description": "Here you can change the credentials used for signin-in.",
+      "actions": {
+        "email": "Change your email",
+        "password": "Change your password"
+      }
+    },
+    "deleteAccount": {
+
+      "title": "Delete account",
+      "description": "Be aware that by proceeding you'll *permanently* delete all your data.",
+      "action": "Delete your account"
     }
-  ],
-
-  "genders": [
-    { "label": "Indifferente" },
-    { "label": "Maschile" },
-    { "label": "Femminile" },
-    { "label": "Oltre" }
-  ],
-
-  "identity": [
-    { "label": "Verificato" },
-    { "label": "Non verificato" }
-  ],
-  
-  "errors": {
-    "required": "Questo campo è obbligatorio",
-    "email": "Qualcosa non va con questa emaill"
   },
 
   "canLeave": {
-    "title": "Modifiche non salvate",
-    "message": "Ci sono cambiamenti che non verranno salvati",
-    "cancel": "Annulla",
-    "ok": "Procedi"
+    "title": "Unsaved changes",
+    "message": "If you leave now, changes won't be saved",
+    "cancel": "Stay",
+    "force": "Save and leave",
+    "ok": "Leave anyhow"
   }
 }

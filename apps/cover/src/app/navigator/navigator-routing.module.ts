@@ -15,7 +15,7 @@ const routes: RoutesWithContent = [
   // External links redirection helper
   { path: 'redirect', canActivate: [ RedirectService ] },
   
-  // Enables language autodetection on empty routes
+  // Triggers language autodetection
   { path: '', redirectTo: 'auto', pathMatch: 'full' },
   
   // Loads te main window (navigator) together with the localized content 
@@ -26,7 +26,7 @@ const routes: RoutesWithContent = [
     
     canActivate: [ LanguageSelector ],
     
-    content: ['navigator', 'footer', 'login', 'feedback'],
+    content: ['navigator', 'login', 'feedback'],
     
     children: [
       

@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'wm-footer',
+  selector: 'footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
-  host: { 'class': 'wm-footer' }
+  styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
 

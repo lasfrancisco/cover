@@ -1,0 +1,20 @@
+
+<!-- Newsletter form -->
+<form (ngSubmit)="form.valid && subscribe()" #form="ngForm">
+
+  <div fxLayout="row">
+
+    <input type="email" 
+          [value]="city" 
+          [disabled]="posting" 
+          [(ngModel)]="email" name="email" required email fxFlex="1 1 auto"/>
+
+    <button mat-flat-button color="accent" type="submit" fxFlex="0 0 auto">
+      <ng-content></ng-content>
+    </button>
+
+  </div>
+
+  <mat-progress-bar *ngIf="posting" mode="indeterminate" color="accent"></mat-progress-bar>
+
+</form>

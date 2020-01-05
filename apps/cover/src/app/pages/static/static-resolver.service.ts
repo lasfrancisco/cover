@@ -36,13 +36,13 @@ export class StaticResolver implements Resolve<string> {
           // Reverts to the default language
           const defaultPath = `assets/docs/${this.defaultLang}/${name}.md`;
           
-          console.log('404 File not found, reverting to default language:', defaultPath);
+          //console.log('404 File not found, reverting to default language:', defaultPath);
           
           // Loads the same document in the default language instead
           return this.http.get(defaultPath, { responseType: 'text' });
         }
 
-        console.log('404 File not found, redirecting to not-found');
+        //console.log('404 File not found, redirecting to not-found');
         throw e;
       }),
       // Redirects to NotFound when no content is found

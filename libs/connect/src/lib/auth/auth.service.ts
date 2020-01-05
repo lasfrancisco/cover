@@ -49,7 +49,7 @@ export class AuthService {
    */
   public registerNew(email: string, password: string, displayName: string = ""): Promise<User> {
     
-    console.log("Registering a new user: " + email);
+    //console.log("Registering a new user: " + email);
     // Create a new user with email and password
     return this.auth.createUserWithEmailAndPassword(email, password)
       // Update the user info with the given name
@@ -67,7 +67,7 @@ export class AuthService {
    */
   public signIn(email: string, password: string): Promise<User>  {
     
-    console.log("Signing in as: ", email);
+    //console.log("Signing in as: ", email);
 
     return this.auth.signInWithEmailAndPassword(email, password)
       .then( credential => credential.user );
@@ -80,7 +80,7 @@ export class AuthService {
    */
   public refresh(password: string): Promise<User> {
 
-    console.log("Refreshing authentication: ", this.user.email);
+    //console.log("Refreshing authentication: ", this.user.email);
     // Gets fresh credentials for the current user
     const credential = auth.EmailAuthProvider.credential(this.user.email, password);
     // Re-authenticate the user with the fresh credentials
@@ -95,7 +95,7 @@ export class AuthService {
    */
   public signInWith(provider: string): Promise<User> {
 
-    console.log("Signing-in using: ", provider);
+    //console.log("Signing-in using: ", provider);
 
     let authProvider = null;
 
@@ -134,14 +134,14 @@ export class AuthService {
 
   /** Signs out */
   public signOut(): Promise<void> {
-    console.log("Signing-out");
+    //console.log("Signing-out");
     return this.auth.signOut();
   }
   
   /** Applies the received action code to complete the requested action */
   public applyActionCode(code: string): Promise<void> {
 
-    console.log("Applying action with code: ", code);
+    //console.log("Applying action with code: ", code);
     return this.auth.applyActionCode(code);
   }
 
@@ -151,14 +151,14 @@ export class AuthService {
    */
   public sendPasswordResetEmail(email: string, url?: string): Promise<void> {
     
-    console.log("Resetting the password for: ", email);
+    //console.log("Resetting the password for: ", email);
     return this.auth.sendPasswordResetEmail(email, url ? { url } : undefined );
   }
 
   /** Confirms the new password completing a reset */
   public confirmPasswordReset(code: string, newPassword: string): Promise<void> {
 
-    console.log("Confirming the password with code: ", code);
+    //console.log("Confirming the password with code: ", code);
     return this.auth.confirmPasswordReset(code, newPassword);
   }
 }

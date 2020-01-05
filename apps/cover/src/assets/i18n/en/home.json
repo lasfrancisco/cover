@@ -1,0 +1,24 @@
+{
+  "search": {
+    "title": "Search for CoverPizza in town",
+    "pitch": "Enjoy the taste of tradition without compromise. Our pizzas use only ingredients without animal derivatives."
+  },
+  "comingSoon": {
+    "title": "We are coming soon",
+    "pitch": "+CoverPizza+ is new and we have not yet arrived in your city but we will be there soon. Subscribe to our newsletter to stay updated. If you are a professional operator and are interested in learning more [contact us](contact).",
+    "subscribe": "Sign up for the newsletter to keep up to date",
+    "submit": "Subscribe me",
+    "or": "or",
+    "restart": "Search again"
+  },
+  "thanks": {
+    "title": "Thank You",
+    "pitch": "+CoverPizza+ is a growing community and we are happy to have you on board.",
+    "restart": "Search again"
+  },
+  "sorry": {
+    "title": "We are sorry",
+    "pitch": "For the moment being +CoverPizza+ is only available in Italy. If you are a professional operator and are interested in learning more [contact us](contact).",
+    "search": "Search in Italy"
+  }
+}

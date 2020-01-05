@@ -1,7 +1,7 @@
-import { Component, Optional, Inject, forwardRef, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { MarkdownTree } from './tree/tree.service';
 import { MarkdownBlock } from './block/block.component';
-import { mdContent, mdHeading, mdFootnoteDefinition } from './tree/tree-types';
+import { mdContent, mdFootnoteDefinition } from './tree/tree-types';
 
 @Component({
   selector: '[wm-markdown]',

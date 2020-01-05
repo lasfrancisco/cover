@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { ContentModule } from '@wizdm/content';
 import { IconModule } from '@wizdm/elements/icon';
@@ -16,6 +17,7 @@ import { FooterComponent } from './footer.component';
     RouterModule,
     FlexLayoutModule,
     MatButtonModule,
+    MatMenuModule,
     MatDividerModule,
     ContentModule,
     IconModule

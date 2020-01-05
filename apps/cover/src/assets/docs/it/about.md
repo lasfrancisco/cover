@@ -1,29 +1,19 @@
-# A proposito di Wizdm
+# A proposito di *CoverPizza*
 
-Wizdm è un modello per realizzare rapidamente applicazioni su pagina singola basate su [Angular](https://angular.io) e [Firebase](https://firebase.google.com). Realizzato per aiutare aspiranti imprenditori digitali a trasformare i loro progetti paralleli in prototipi funzionanti pronti al lancio nel più breve tempo possibile. 
+*CoverPizza* nasce per coniugare i sapore della tradizione pizzaiola Italiana con le moderne necessità di riduzione dell'impatto ambientale nonché eliminazione dello sfruttamento animale.
 
-## Ricco di funzioni
+Crediamo che per assaporare un'ottima pizza, anche nelle varianti più tradizionali, non sia più necessario ricorrere ad ingredienti di origine animale seppur garantendo qualità, gusto e tracciabilità d'origine.
 
-Wizdm è distribuito completo delle più essenziali funzionalità tipiche delle applicazioni moderne quali: gestione ed autenticazione degli utenti, memorizzazione cloud e sincronizzazione in tempo reale, internazionalizzazione e personalizzazione dell'interfaccia utente e molto altro - tutte pronte all'uso.
+Crediamo nel valore delle tradizioni culinarie, ecco perché utilizziamo il termine "cover" ad indicare una re-interpretazione moderna di qualcosa di classico e intramontabile.
 
-## Nessun costo d'avvio
+## Dove trovarci
 
-Alla base di questa iniziativa c'è il desiderio di fornire una soluzione che garantisca le massime prestazioni, compatibilità e supporto evitando però tutti i costi iniziali. Per farlo, tutte le tecnlogie, i servizi e le piattaforme utilizzate per lo sviluppo di wizdm sono state selezionate in base all'ottima reputazione nonché alla disponibilità di generose offerte ti iscrizione gratuita.
+*CoverPizza* è disponibile in tutte le pizzerie aderenti, nelle quali troverete la variante "cover" a fianco alle pizze disponibili nel menù. [Cerca qui](home) per sapere dove siamo nella tua città.
 
-## Contribuire
+## I nostri fornitori
 
-Wizdm è open source ed aperto ai contributi. Chiunque decida di utilizzare questo progetto per i propri sviluppi è il benvenuto. [Contattaci](contact).
+I nostri fornitori sono tutti Italiani, produttori locali con la passione per il gusto e la tradizione, tutti accomunati dalla stessa visione di un futuro migliore per le generazioni a venire.
 
-## Licenza
+## Operatori professionali
 
-Wizdm è distribuito in accordo con la licenza [MIT-License](license).
-
-## Risorse
-
-[Angular](https://angular.io/docs) 
-
-[Firebase](https://firebase.google.com/docs)
-
-[Github](https://github.com/wizdmio/wizdm) 
- 
-[Home](home)
+Se sei un operatore professionale e sei interessato ad approfondire [contattaci](contact).

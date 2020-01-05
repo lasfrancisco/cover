@@ -82,7 +82,7 @@ export class Member<T extends wmMember = wmMember> extends DatabaseDocument<T> i
 
     if(!user) { return Promise.reject( new Error("Can't create a profile from a null user object") ); }
 
-    console.log("Creating user profile for: ", user.email);
+    //console.log("Creating user profile for: ", user.email);
 
     // Checks for document existance first
     return this.fromUser(user).exists()

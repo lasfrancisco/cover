@@ -121,7 +121,7 @@ export class ReadmeComponent {
     // Calls upon the ReadmeNavigator
     if(this.serviceNavigation) { return this.navigator.navigate(url), false; }
     // No navigation handlers...
-    console.log("Navigation missed:", url);
+    //console.log("Navigation missed:", url);
     // Prevents default
     return false;
   }

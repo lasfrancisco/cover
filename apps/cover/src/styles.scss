@@ -14,7 +14,7 @@
 @import url('https://use.fontawesome.com/releases/v5.12.0/css/all.css');
 
 // Load the main google fonts from the web
-@import url('https://fonts.googleapis.com/css?family=Bad+Script|Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Open+Sans:400,700&display=swap');
 
 // Import local partials
 @import './styles/variables';
@@ -70,7 +70,8 @@ $wm-theme: tweak-material-theme($wm-theme,
     app-bar:          mat-color($mat-red, 900),
     status-bar:       mat-color($mat-red, 900), 
     background:       mat-color($mat-red, 900),
-    dialog:           mat-color($mat-red, 900)
+    dialog:           mat-color($mat-red, 900),
+    card:             mat-color($mat-red, 900)
   )
 );
 

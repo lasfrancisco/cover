@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
         // Reverts navigation to the login page on invalid user profile
         if(!user) { // || !user.emailVerified) {
 
-          console.log('canActivate: Authentication required');
+          //console.log('canActivate: Authentication required');
 
           // Stores the requested url
           const url = state.url;
@@ -39,7 +39,7 @@ export class AuthGuard implements CanActivate {
         }
 
         // Allows navigation otherwise
-        console.log('canActivate: Access granted');
+        //console.log('canActivate: Access granted');
         return true;
       }),
       // Completes the observable

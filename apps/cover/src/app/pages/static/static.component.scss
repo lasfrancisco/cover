@@ -1,19 +1,8 @@
 
 :host {
 
-  .background {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 480px;
-    height: 80vh;
-    max-height: 560px;
-    box-sizing: border-box;
-    transform: skewY(-10deg);
-    transform-origin: 0 100%;
-  }
+  display: block;
+  position: relative;
 
   .foreground {
     display: block;
@@ -23,4 +12,6 @@
     box-sizing: border-box;
     padding: 5vw;
   }
+
+  .wm-markdown { text-align: justify; }
 }

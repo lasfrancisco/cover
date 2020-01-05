@@ -1,40 +1,38 @@
 {
-    "title": "Wizdm - Get your app done right",
-    "description": "The fully featured boilerplate to launch your web application quickly",
+    "title": "Cover Pizza -All the pizzas you want",
+    "description": "The pizza as you want",
 
     "toolbar": {
         "public": [
-            { "label": "Cover", "link": "." },
-            { "label": "About", "link": "about" },
-            { "label": "Explore", "link": "explore" }
+            { "label": "Where to find us" },
+            { "label": "Contact us" }
         ],
         "private": [
-            { "label": "Wizdm", "link": "." },
-            { "label": "Explore", "link": "explore" },
-            { "label": "My projects", "link": "explore", "params": { "filter": "mine" } },
-            { "label": "Try me", "link": "apply"  }
+            { "label": "Where to find us" },
+            { "label": "Contact us" }
         ]
     },
 
     "menu": {
         "public": [
-            { "label": "Home", "link": "." },
-            { "label": "About", "link": "about" },
-            { "label": "Explore", "link": "explore" },
-            { "label": "Register/Sign-in", "link": "login", "params": { "mode": "signIn" } }
+            { "label": "Where to find us" },
+            { "label": "About" },
+            { "label": "Contact us" },
+            { "label": "Register/Sign-in" }
         ],
         "private": [
-            { "label": "Home", "link": "." },
-            { "label": "Explore", "link": "explore" },
-            { "label": "Apply", "link": "apply" },
-            { "label": "Upload", "link": "upload" },
-            { "label": "Profile", "link": "profile" },
-            { "label": "Sign-out", "link": "login", "params": { "mode": "signOut" } }
+            { "label": "Where to find us" },
+            { "label": "About" },
+            { "label": "Contact us" },
+            { "label": "Profile" },
+            { "label": "Sign-out" }
         ]
     },
 
-    "contactUs" : {
-        "caption": "Contact us",
-        "icon": "far:fa-comment"
+    "footer": { 
+        "links": [
+            { "label": "About" },
+            { "label": "Privacy" }
+        ]
     }
 }

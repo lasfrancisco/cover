@@ -41,7 +41,7 @@ export class DefaultLoader extends ContentLoader {
    */
   public loadModule(lang: string, moduleName: string): Observable<any> {
 
-    console.log('loading:', moduleName, lang);
+    //console.log('loading:', moduleName, lang);
 
     // Resets the data snapshot while switching language
     if(lang !== this.language) { this.data = { lang }; }

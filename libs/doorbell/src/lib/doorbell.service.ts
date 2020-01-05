@@ -25,7 +25,7 @@ export class DoorbellService {
       params: { 'key': this.config.appKey },
       observe: 'response',
       responseType: 'text' 
-     }).toPromise().then( res => {console.log(res); return res.status === 201;} );
+     }).toPromise().then( res => res.status === 201 );
   }
 
   /** Submits a feedback form with optional attachments

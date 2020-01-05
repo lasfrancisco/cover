@@ -1,0 +1,49 @@
+
+:host {
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+
+  .search-box {
+
+    width: 100%;
+    margin: 16px 0;
+
+    input {
+      
+      height: 48px;
+      width: 100%;  
+
+      padding: 0 8px;
+      box-sizing: border-box;
+
+      border-radius: 5px;
+      border-style: none;
+      outline: none;
+      
+      color: rgba(black, 0.84);
+      background-color: white;
+
+      text-shadow: none;
+      font-size: 22px;
+    }
+
+    .mat-progress-bar {
+
+      margin-top: -4px;
+      border-radius: 0 0 5px 5px;
+    }
+  }
+
+  .match-list {
+
+    border-radius: 5px;
+    border-style: none;
+    outline: none;
+
+    z-index: 1;
+  }
+}

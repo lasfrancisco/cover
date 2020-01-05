@@ -1,22 +1,80 @@
 
+<!-- Gets the localized content -->
 <ng-container *wmContent="let msgs select 'home'">
-  
-  <!--wm-illustration *ngIf="!!msgs.banner" class="background" color="primary" [src]="msgs.banner" [baseHref]="msgs.lang"></!--wm-illustration--> 
 
-  <section fxLayout="column" fxLayoutAlign="center center" wmAnimate="landing" speed="slow" aos>
-    
-    <h1 class="mat-display-1"><b>{{ msgs.title || 'Get your app done right' }}</b></h1>
-    
-    <p [wm-readme]="msgs.pitch">
-      Wizdm provides all the key features of a modern single page application ready to use.
-    </p>
-    
-    <button mat-raised-button color="accent" [routerLink]="msgs.action?.link">{{ msgs.action?.caption || 'Get started' }}</button>
-    
-    <p [wm-readme]="msgs.join" class="mat-small">
-      Join us and become part of the revolution of <a wmRedirect="about">Wizdm</a>
-    </p>
-    
-  </section>
+  <!-- Applies a semi-transparent layour over the background -->
+  <div class="redfog"></div>
 
-</ng-container>
+  <ng-container [ngSwitch]="mode$ | async">
+
+    <!-- City Search -->
+    <section *ngSwitchCase="'search'" fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="center center" wmAnimate="landing" speed="slow">
+
+      <h1 class="mat-display-1"><b>{{ msgs.search?.title || 'Trova CoverPizza nella tua città' }}</b></h1>
+
+      <!-- City search box -->
+      <wm-searchbox [(city)]="search" (fail)="comingSoon()"></wm-searchbox>
+
+      <p [wm-readme]="msgs.search?.pitch">
+        Gusta il sapore della tradizione senza compromessi. Le nostre pizze usano solo ingredienti privi di derivati animale.
+      </p>
+
+    </section>
+
+    <!-- We are coming soon -->
+    <section *ngSwitchCase="'soon'" fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="center center" wmAnimate="fadeInUp" speed="fast">      
+
+      <h1 class="mat-display-1"><b>{{ msgs.comingSoon?.title || 'Ci Saremo Presto' }}</b></h1>
+
+      <p [wm-readme]="msgs.comingSoon?.pitch">
+        <i>CoverPizza</i> è una novità e non siamo ancora arrivati nella tua città ma ci saremo presto. Iscriviti alla nostra newsletter per rimanere aggiornato.
+        Se sei un operatore professionale e ti interessa approfondire <a wmRedirect="contact">contattaci</a>.
+      </p>
+
+      <!-- Gets a copy of the search report results -->
+      <ng-container *ngIf="report$ | async as report">
+
+        <p>{{ msgs.comingSoon?.subscribe || 'Iscriviti alla newsletter per tenerti aggiornato' }}</p>
+
+        <!-- Newsletter form -->
+        <wm-newsletter [country]="report.country" [city]="report.city" [ip]="report.ip" (done)="thankYou()">
+          {{ msgs.comingSoon?.submit || 'Iscrivimi' }}
+        </wm-newsletter>
+
+        <p>{{ msgs.comingSoon?.or || 'oppure' }}</p>
+
+      </ng-container>
+
+      <!-- Go to search -->
+      <button mat-stroked-button color="accent" (click)="find()">{{ msgs.comingSoon?.restart || "Effettua un'altra ricerca" }}</button>
+
+    </section>
+
+    <!-- Thank you -->
+    <section *ngSwitchCase="'thanks'" fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="center center" wmAnimate="fadeIn" speed="fast">
+
+      <h1 class="mat-display-1"><b>{{ msgs.thanks?.title || 'Grazie' }}</b></h1>
+
+      <p [wm-readme]="msgs.thanks?.pitch">
+        <i>CoverPizza</i> è una community in creascita e siamo lieti che tu sia dei nostri.
+      </p>
+
+      <button mat-stroked-button color="accent" (click)="find()">{{ msgs.thanks?.restart || "Effettua un'altra ricerca" }}</button>
+
+    </section>
+
+    <!-- We are sorry -->
+    <section *ngSwitchCase="'sorry'" fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="center center" wmAnimate="fadeInDown" speed="fast">
+
+      <h1 class="mat-display-1"><b>{{ msgs.sorry?.title || 'Siamo spiacenti' }}</b></h1>
+
+      <p [wm-readme]="msgs.sorry?.pitch">
+        <i>CoverPizza</i> è al momento disponibile solo in Italia. Se sei un operatore professionale e ti interessa approfondire <a wmRedirect="contact">contattaci</a>.
+      </p>
+
+      <!-- Go to search -->
+      <button mat-stroked-button color="accent" (click)="find()">{{ msgs.sorry?.search || "Cerca in Italia" }}</button>
+
+    </section>
+
+  </ng-container>

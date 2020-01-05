@@ -1,0 +1,25 @@
+
+
+<!-- City Search Box -->
+<div class="search-box">
+
+  <input type="text" 
+         [value]="city" 
+         [disabled]="searching" 
+         (focus)="match($event.target.value)" 
+         (input)="match($event.target.value)" #input/>
+
+  <mat-progress-bar *ngIf="searching" mode="indeterminate" color="accent"></mat-progress-bar>
+
+</div>
+
+<!-- Matching cities' list -->
+<ng-container *ngIf="cities$ | async as cities">
+
+  <mat-action-list class="match-list background-color" [ngStyle]="listOn(input)" *ngIf="cities.length > 0">
+
+    <button mat-list-item (click)="search(city)" *ngFor="let city of cities">{{ city.name }}</button>
+    
+  </mat-action-list>
+
+</ng-container>
