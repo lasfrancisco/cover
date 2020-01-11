@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 import { ViewportRuler } from '@angular/cdk/scrolling';
 import { MediaObserver } from '@angular/flex-layout';
-import { ContentStreamer } from '@wizdm/content';
-import { Member } from 'app/core/member';
 import { ActionLinkObserver } from 'app/utils/action-link';
 import { ActionbarService } from './actionbar';
 import { Observable, fromEvent } from 'rxjs';
 import { map, distinctUntilChanged, startWith } from 'rxjs/operators';
+import { Background } from './background';
 import { $animations } from './navigator.animations';
 
 @Component({
@@ -15,8 +14,7 @@ import { $animations } from './navigator.animations';
   templateUrl: './navigator.component.html',
   styleUrls: ['./navigator.component.scss'],
   host: { 'class': 'wm-theme-colors' },
-  animations: $animations,
-  providers: [ ContentStreamer ]
+  animations: $animations
 })
 export class NavigatorComponent {
 
@@ -30,8 +28,8 @@ export class NavigatorComponent {
               private viewport: ViewportRuler, 
               private actionlink: ActionLinkObserver,
               private location: Location,
-              readonly actionbar: ActionbarService, 
-              readonly member: Member) {
+              readonly background: Background,
+              readonly actionbar$: ActionbarService) {
 
     // Creates an observable to detect whenever the viewport is scrolled
     this.scrolled$ = fromEvent(window, 'scroll').pipe(
@@ -51,12 +49,4 @@ export class NavigatorComponent {
   // Toggler satus helper (mobile)
   public toggleMenu() { this.menuToggler = !this.menuToggler; }
 
-  // Signed In status
-  public get signedIn(): boolean {
-    return this.member.auth.authenticated || false;
-  }
-
-  public get userImage(): string {
-    return this.member.data.photo || '';
-  }
 }

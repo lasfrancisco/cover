@@ -5,19 +5,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconRegistry, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material';
 import { MomentDateAdapter, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
 import { ContentModule } from '@wizdm/content';
-import { ConnectModule } from '@wizdm/connect';
-import { AuthModule } from '@wizdm/connect/auth';
-import { DatabaseModule } from '@wizdm/connect/database';
-//import { StorageModule } from '@wizdm/connect/storage';
 import { DoorbellModule } from '@wizdm/doorbell';
 import { ReadmeNavigator } from '@wizdm/elements/readme';
 import { RedirectService } from '@wizdm/redirect';
 import { IpInfoModule } from 'app/core/ipinfo';
+import { GtagModule } from 'app/core/gtag';
 //import { MailerLiteModule } from 'app/core/mailerlite';
 import { AppComponent } from './app.component';  
 //import { environment } from '../environments/environment';
 import { appname, content, router } from '../environments/common';
-import { firebase, doorbell, ipinfo, mailerlite } from '../environments/secrets';
+import { firebase, doorbell, ipinfo, gtag, mailerlite } from '../environments/secrets';
 
 // Define the singe lazy loading navigation routes
 const routes: Routes = [ 
@@ -30,15 +27,14 @@ const routes: Routes = [
     // Basics
     BrowserModule,
     BrowserAnimationsModule,
-    // Database tools (Firebase)
-    ConnectModule.init(firebase, appname),
-    AuthModule, DatabaseModule,// StorageModule,    
     // Dynamic content (i18n)
     ContentModule.init(content),    
     // Doorbell service (Feedback form)
     DoorbellModule.init(doorbell),
     // IpInfo services
     IpInfoModule.init(ipinfo),
+    // Google Analytics
+    GtagModule.init(gtag),
     // MailerLite
     //MailerLiteModule.init(mailerlite),
     // Angular's Router

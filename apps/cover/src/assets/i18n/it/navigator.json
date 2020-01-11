@@ -4,11 +4,11 @@
 
     "toolbar": {
         "public": [
-            { "label": "Dove siamo", "link": "." },
+            { "label": "Dove siamo", "link": ".", "params": { "mode": "search" } },
             { "label": "Contattaci", "link": "contact" }
         ],
         "private": [
-            { "label": "Dove siamo", "link": "." },
+            { "label": "Dove siamo", "link": ".", "params": { "mode": "search" } },
             { "label": "Contattaci", "link": "contact" }
         ]
     },

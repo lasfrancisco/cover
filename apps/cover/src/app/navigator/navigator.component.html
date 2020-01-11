@@ -26,25 +26,6 @@
         <!-- Right pane -->
         <div fxLayout="row" fxLayoutAlign="end center">
 
-          <!-- Action toolbar -->
-          <wm-actionbar [template]="actionbar | async"></wm-actionbar>
-
-          <!-- Sign-in / User profile button -->
-          <button mat-icon-button [routerLink]="signedIn ? 'profile' : 'login'">
-            
-            <!-- Flip button -->
-            <wm-flip [flipped]="signedIn">
-            
-              <!-- Shows a generic signIn icon on the front -->
-              <wm-icon front icon="fas:fa-sign-in-alt"></wm-icon>
-            
-              <!-- Shows the loggedIn avatar on the back -->
-              <wm-avatar back color="primary" [src]="userImage"></wm-avatar>
-            
-            </wm-flip>
-
-          </button>
-
           <!-- Mobile menu toggler -->
           <button mat-icon-button (click)="toggleMenu()" *ngIf="mobile">
             <wm-toggler toggler-style="menu" [toggled]="menuToggler"></wm-toggler>
@@ -64,22 +45,19 @@
 
   </header>
 
-  <!-- Viewport container -->
-  <main fxFlex="1 1 auto" fxLayout="column">
+  <!-- Viewport container with dynamic background -->
+  <main fxFlex="1 1 auto" fxLayout="column" [ngStyle]="background.style$ | async">
 
     <!-- Router Outlet stretched to fit -->
     <div fxFlex="1 1 auto">
 
       <!-- The page goes here -->
-      <router-outlet (deactivate)="actionbar.clear()"></router-outlet>
+      <router-outlet (deactivate)="actionbar$.clear(); background.clear()"></router-outlet>
     
     </div>
     
     <!-- Footer always on the bottom -->
     <footer fxFlex="0 0 auto"></footer>
-
-    <!-- Login popup dialog activated on 'login' action link @see navigator-router-module -->
-    <wm-login-dlg wmActionLink="login" (activate)="login.open($event)" #login></wm-login-dlg>
 
     <!-- Feedback form activated on 'contact' action link  @see navigator-router-module -->
     <wm-feedback-dlg [disableClose]="true" wmActionLink="contact" (activate)="feedback.open($event)" #feedback></wm-feedback-dlg>

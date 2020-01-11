@@ -2,15 +2,11 @@ import { NgModule } from '@angular/core';
 import { ContentRouterModule, RoutesWithContent } from '@wizdm/content';
 import { RedirectService } from '@wizdm/redirect';
 import { LanguageSelector } from 'app/utils/lang-selector';
-import { Oauth2Handler } from 'app/utils/oauth2-handler';
 import { ActionLinkObserver } from 'app/utils/action-link';
 
 import { NavigatorComponent } from './navigator.component';
 
 const routes: RoutesWithContent = [
-
-  // Redirects handler page (for firebase password confirmation/reset and stuff)
-  { path: 'handler', canActivate: [ Oauth2Handler ] },
 
   // External links redirection helper
   { path: 'redirect', canActivate: [ RedirectService ] },
@@ -34,14 +30,7 @@ const routes: RoutesWithContent = [
       { path: '', loadChildren: () => import('../pages/home/home.module').then(m => m.HomeModule) },
       { path: 'home', redirectTo: '', pathMatch: 'full' },
 
-      // Redirecs to coming soon page
-      // { path: '**',          redirectTo:   'coming-soon', pathMatch: 'full' },
-      
-      // Active pages
-      { path: 'profile',     loadChildren: () => import('../pages/profile/profile.module').then(m => m.ProfileModule) },
-      
       // Intercepts routing "action-links" to execute a non-routing action
-      { path: 'login',       canActivate: [ ActionLinkObserver ] },
       { path: 'contact',     canActivate: [ ActionLinkObserver ] },
       { path: 'back',        canActivate: [ ActionLinkObserver ] },
       

@@ -1,9 +1,11 @@
 import { Component, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DoorbellService } from '@wizdm/doorbell';
 import { IpList } from 'app/core/iplist';
 import { IpInfo } from 'app/core/ipinfo';
+import { GtagService } from 'app/core/gtag';
 import { Observable, Subject, BehaviorSubject, Subscription, of, merge } from 'rxjs';
-import { flatMap, map, filter, shareReplay } from 'rxjs/operators';
+import { flatMap, map, filter, shareReplay, tap } from 'rxjs/operators';
 
 export interface Analitics {
   ip: string;
@@ -12,18 +14,20 @@ export interface Analitics {
   search: string;
 }
 
-type Modes = 'search' | 'soon' | 'sorry' | 'thanks';
+type Modes = 'survey'|'search'|'soon'|'sorry'|'thanks';
 
 @Component({
   selector: 'wm-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  host: { class: 'padding-top-toolbar' }
 })
 export class HomeComponent implements OnDestroy {
 
   readonly mode$: Observable<Modes>;
   private changeMode$ = new Subject<Modes>();
 
+  public survey() { this.changeMode$.next('survey'); }
   public find() { this.search = ''; this.changeMode$.next('search'); }
   public comingSoon() { this.changeMode$.next('soon'); }
   public thankYou() { this.changeMode$.next('thanks'); }
@@ -37,10 +41,20 @@ export class HomeComponent implements OnDestroy {
   readonly report$: Observable<Analitics>;
   private sub: Subscription;
 
-  constructor(readonly ipinfo$: IpInfo, readonly iplist$: IpList, private doorbell: DoorbellService) { 
+  constructor(route: ActivatedRoute, readonly ipinfo$: IpInfo, readonly iplist$: IpList, private doorbell: DoorbellService, private gtag: GtagService) { 
 
     // Inits the mode observable based on the country from iplist (unimited free calls)
-    this.mode$ = merge( this.changeMode$, iplist$.pipe( map( list => list.countrycode === 'IT' ? 'search' : 'sorry' )));    
+    this.mode$ = merge( 
+      
+      this.changeMode$, 
+      
+      route.queryParamMap.pipe( 
+      
+        map( params => params.get('mode') as Modes ),
+  
+        flatMap( query => query && of(query) || iplist$.pipe( map( list => list.countrycode === 'IT' ? 'survey' : 'sorry' )) ) 
+      )
+    );    
 
     // Builds the analitics report whenever searching for a city
     this.report$ = this.search$.pipe( 
@@ -72,6 +86,9 @@ export class HomeComponent implements OnDestroy {
 
       // Makes sure everybody gets the same report
       shareReplay(1),
+
+      // Tags the text search with google analytics
+      tap( report => this.gtag.search( report.search ) )
     );
     
     // Submits the report to Doorbell
@@ -87,4 +104,8 @@ export class HomeComponent implements OnDestroy {
 
   // Disposes of the subscriptions
   ngOnDestroy() { this.sub && this.sub.unsubscribe(); }
+
+  public redFilter(url: string): string {
+    return url && 'linear-gradient(rgba(128, 0, 0, 0.5), rgba(128, 0, 0, 0.5)), url(' + url + ')' || '';
+  }
 }

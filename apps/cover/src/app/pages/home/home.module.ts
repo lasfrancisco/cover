@@ -10,6 +10,8 @@ import { RedirectModule } from '@wizdm/redirect';
 import { AnimateModule } from '@wizdm/animate';
 import { IconModule } from '@wizdm/elements/icon';
 import { ReadmeModule } from '@wizdm/elements/readme';
+import { GtagModule } from 'app/core/gtag';
+import { BackgroundModule } from 'app/navigator/background';
 import { HomeComponent } from './home.component';
 import { SearchboxComponent } from './searchbox/searchbox.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
@@ -35,7 +37,8 @@ const routes: RoutesWithContent = [
     AnimateModule,
     IconModule, 
     ReadmeModule,
-    //IllustrationModule,
+    GtagModule,
+    BackgroundModule,
     ContentRouterModule.forChild(routes)
   ]
 })

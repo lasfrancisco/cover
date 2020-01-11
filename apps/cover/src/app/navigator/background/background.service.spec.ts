@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Oauth2HandlerService } from './oauth2-handler.service';
+import { BackgroundService } from './background.service';
 
-describe('Oauth2HandlerService', () => {
+describe('BackgroundService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: Oauth2HandlerService = TestBed.get(Oauth2HandlerService);
+    const service: BackgroundService = TestBed.get(BackgroundService);
     expect(service).toBeTruthy();
   });
 });

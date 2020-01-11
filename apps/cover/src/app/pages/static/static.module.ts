@@ -6,6 +6,7 @@ import { ContentRouterModule, RoutesWithContent } from '@wizdm/content';
 import { AnimateModule } from '@wizdm/animate';
 import { MarkdownModule } from '@wizdm/markdown';
 import './prism-languages';
+import { GtagModule } from 'app/core/gtag';
 import { StaticResolver } from './static-resolver.service';
 import { StaticComponent } from './static.component';
 
@@ -14,8 +15,6 @@ const routes: RoutesWithContent = [
     path: '',
     component: StaticComponent,
     resolve: { document: StaticResolver }
-    //canActivate: [ AuthGuard ],
-    //canDeactivate: [ PageGuard ]
   }
 ];
 
@@ -27,6 +26,7 @@ const routes: RoutesWithContent = [
     MatDividerModule,
     MarkdownModule.init({ commonmark: true, footnotes: true }),
     AnimateModule,
+    GtagModule,
     ContentRouterModule.forChild(routes)
   ],
   providers: [ StaticResolver ]

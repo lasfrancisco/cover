@@ -1,11 +1,11 @@
 :host {
   
-  display: block;
+  display: flex;
   position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
+  width: 100%;
+  min-height: 100%;
   
   // Settle a lower general zindex (1)
   z-index: 1;
@@ -18,7 +18,6 @@
     left: 0;
     
     // Makes sure all the children lays on the same z-index
-    //z-index: 2;
     &, * { z-index: 2; }
 
     .logo { 

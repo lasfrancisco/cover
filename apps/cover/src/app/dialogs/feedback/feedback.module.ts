@@ -11,6 +11,7 @@ import { ContentModule } from '@wizdm/content';
 import { RedirectModule } from '@wizdm/redirect';
 import { DialogModule } from '@wizdm/elements/dialog';
 import { IconModule } from '@wizdm/elements/icon';
+import { GtagModule } from 'app/core/gtag';
 import { FeedbackComponent } from './feedback.component';
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FeedbackComponent } from './feedback.component';
     ContentModule,
     RedirectModule,
     DialogModule,
-    IconModule
+    IconModule,
+    GtagModule
   ],
   declarations: [ FeedbackComponent ],
   exports: [ FeedbackComponent ]

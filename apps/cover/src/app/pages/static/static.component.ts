@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { RedirectService } from '@wizdm/redirect';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'wm-static',
@@ -9,6 +12,10 @@ import { RedirectService } from '@wizdm/redirect';
 })
 export class StaticComponent {
 
-  constructor(readonly redirect: RedirectService) {}
-  
+  readonly name$: Observable<string>;
+
+  constructor(readonly redirect: RedirectService, route: ActivatedRoute) {
+
+    this.name$ = route.paramMap.pipe( map( params => params && params.get('name') || '') );
+  }
 }

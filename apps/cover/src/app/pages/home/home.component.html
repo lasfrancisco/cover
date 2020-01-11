@@ -2,13 +2,32 @@
 <!-- Gets the localized content -->
 <ng-container *wmContent="let msgs select 'home'">
 
-  <!-- Applies a semi-transparent layour over the background -->
-  <div class="redfog"></div>
-
   <ng-container [ngSwitch]="mode$ | async">
 
+    <wm-background [image]="redFilter(msgs.background)" attachment="fixed" repeat="no-repeat" size="cover"></wm-background>
+
+    <!-- Survey -->
+    <section *ngSwitchCase="'survey'" fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="center center" wmAnimate="fadeInDown" speed="fast" gtag="survey">
+
+      <!-- Question -->
+      <h1 class="mat-display-1"><b>{{ msgs.survey?.question || 'Vuoi gustare le pizze classiche in versione integralmente vegetale?' }}</b></h1>
+
+      <!-- Answer box -->
+     <button mat-flat-button color="accent" (click)="find()">{{ msgs.survey?.yes || 'Sì certamente!' }}</button>
+
+     <br>
+     
+      <!-- Pizza menu -->
+      <p *ngFor="let pizza of msgs.survey?.menu" [wm-readme]="pizza"></p>
+
+      <p class="mat-small"[wm-readme]="msgs.survey?.note">
+        Pizze e prezzi indicati sono solo indicativi e rappresentativi del tipo di offerta.
+      </p>
+
+    </section>
+
     <!-- City Search -->
-    <section *ngSwitchCase="'search'" fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="center center" wmAnimate="landing" speed="slow">
+    <section *ngSwitchCase="'search'" fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="center center" wmAnimate="landing" speed="slow" gtag="search">
 
       <h1 class="mat-display-1"><b>{{ msgs.search?.title || 'Trova CoverPizza nella tua città' }}</b></h1>
 
@@ -22,7 +41,7 @@
     </section>
 
     <!-- We are coming soon -->
-    <section *ngSwitchCase="'soon'" fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="center center" wmAnimate="fadeInUp" speed="fast">      
+    <section *ngSwitchCase="'soon'" fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="center center" wmAnimate="fadeInUp" speed="fast" gtag="subscribe">      
 
       <h1 class="mat-display-1"><b>{{ msgs.comingSoon?.title || 'Ci Saremo Presto' }}</b></h1>
 
@@ -51,7 +70,7 @@
     </section>
 
     <!-- Thank you -->
-    <section *ngSwitchCase="'thanks'" fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="center center" wmAnimate="fadeIn" speed="fast">
+    <section *ngSwitchCase="'thanks'" fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="center center" wmAnimate="fadeIn" speed="fast" gtag="thanks">
 
       <h1 class="mat-display-1"><b>{{ msgs.thanks?.title || 'Grazie' }}</b></h1>
 
@@ -64,7 +83,7 @@
     </section>
 
     <!-- We are sorry -->
-    <section *ngSwitchCase="'sorry'" fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="center center" wmAnimate="fadeInDown" speed="fast">
+    <section *ngSwitchCase="'sorry'" fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="center center" wmAnimate="fadeInDown" speed="fast" gtag="sorry">
 
       <h1 class="mat-display-1"><b>{{ msgs.sorry?.title || 'Siamo spiacenti' }}</b></h1>
 

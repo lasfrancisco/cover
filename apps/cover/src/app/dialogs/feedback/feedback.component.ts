@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DoorbellService } from '@wizdm/doorbell';
 import { DialogComponent } from '@wizdm/elements/dialog';
-import { Member } from 'app/core/member';
+//import { Member } from 'app/core/member';
 
 export interface DorbellSubmit {
   email        : string,
@@ -34,7 +34,7 @@ export class FeedbackComponent extends DialogComponent {
   public sending = false;
   public sent = false;
   
-  constructor(dialog: MatDialog, private builder: FormBuilder, private user: Member, private doorbell: DoorbellService) { 
+  constructor(dialog: MatDialog, private builder: FormBuilder, /*private user: Member,*/ private doorbell: DoorbellService) { 
     super(dialog);
 
     this.panelClass = ['wm-feedback', 'wm-theme-colors'];
@@ -46,9 +46,9 @@ export class FeedbackComponent extends DialogComponent {
     });
   }
 
-  get member() { return this.user.data || {}; }
+  get member() { return /*this.user.data ||*/ {}; }
   
-  get authenticated() { return this.user.auth.authenticated; }
+  get authenticated() { return false; /*this.user.auth.authenticated;*/ }
 
   get fileSizeExceeded(): boolean {
 
@@ -70,8 +70,8 @@ export class FeedbackComponent extends DialogComponent {
 
     // Initializes the form with the authenticated user name/email when available
     this.form.setValue({
-      name: this.member.name || '',
-      email: this.member.email || '',
+      name: /*this.member.name ||*/ '',
+      email: /*this.member.email ||*/ '',
       message: ''
     });
 
@@ -120,7 +120,7 @@ export class FeedbackComponent extends DialogComponent {
       language,
 
       // Includes the user id when available
-      properties: this.authenticated ? { userId: this.member.id } : undefined
+      //properties: this.authenticated ? { userId: this.member.id } : undefined
     
     }, this.files).then( success => {
 

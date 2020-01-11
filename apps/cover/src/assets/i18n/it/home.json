@@ -1,4 +1,21 @@
 {
+  "background": "https://images.unsplash.com/photo-1564936281440-2c36f57db305?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1384&q=80",
+  "survey": {
+    "question": "Vuoi gustare le pizze classiche in versione integralmente vegetale?",
+    "yes": "Sì certamente!",
+    "no": "No grazie",
+    "menu": [
+      "Pizza Margherita ................................................................. 5.00",
+      "Pizza Bufalina ...................................................................... 6.00",
+      "Pizza Capricciosa ................................................................ 6.50",
+      "Pizza Quattro Stagioni ........................................................ 6.50",
+      "Pizza Boscaiola .................................................................... 7.00",
+      "Pizza Carrettiera .................................................................. 6.50",
+      "Pizza Romana ....................................................................... 6.00",
+      "Pizza Diavola ........................................................................ 6.50"
+    ],
+    "note": "Pizze e prezzi sopra riportati sono solo indicativi e rappresentativi del tipo di offerta."
+  },
   "search": {
     "title": "Trova CoverPizza nella tua città",
     "pitch": "Gusta il sapore della tradizione senza compromessi. Le nostre pizze usano solo ingredienti privi di derivati animali."
